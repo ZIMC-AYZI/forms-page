@@ -1,0 +1,47 @@
+<div class="wrapper">
+  @if (pending) {
+    <div class="cancel-block">
+      <button
+        (click)="cancelRequest()"
+        class="button button--cancel"
+        mat-button
+      >
+        Cancel
+      </button>
+      <p class="time">{{ timeRemain$ | async | remainingTimer }}</p>
+    </div>
+  } @else {
+    <button
+      [disabled]="generalForm.invalid"
+      (click)="submitAllForms()"
+      class="button button--submit"
+      mat-button
+    >
+      Submit all forms
+    </button>
+  }
+
+  <div class="content">
+    @for (group of getAllFormGroups; track idx; let idx = $index) {
+      <app-form-item
+        (removeItem)="formItemRemove(idx)"
+        [disabled]="pending"
+        [disableRemove]="getAllFormGroups.length === 1"
+        [formGroup]="group"
+      ></app-form-item>
+    }
+    <mat-card
+      [class.disabled]="
+        getAllFormGroups.length === maxAvailableForms || pending
+      "
+      (click)="generateNewForm()"
+      class="add-form"
+    >
+      <mat-card-content class="add-form__content">
+        <button class="add-form__btn" mat-fab aria-label="add form">
+          <mat-icon>add_circle</mat-icon>
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

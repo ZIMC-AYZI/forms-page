@@ -1,0 +1,66 @@
+<mat-card class="form">
+  <mat-card-content>
+    <app-labeled-input>
+      <ng-container slot="label">
+        <p>Country</p>
+      </ng-container>
+
+      <ng-container slot="control">
+        <input
+          class="app-input"
+          appInputValidation
+          [inputLabel]="'Country'"
+          [readOnly]="disabled"
+          [inputControl]="formGroup.get('country') | getControl"
+          [formControl]="formGroup.get('country') | getControl"
+          placeholder=""
+          type="text"
+        />
+      </ng-container>
+    </app-labeled-input>
+
+    <app-labeled-input>
+      <ng-container slot="label">
+        <p>Username</p>
+      </ng-container>
+
+      <ng-container slot="control">
+        <input
+          class="app-input"
+          appInputValidation
+          [inputLabel]="'Username'"
+          [readOnly]="disabled"
+          [inputControl]="formGroup.get('username') | getControl"
+          [formControl]="formGroup.get('username') | getControl"
+          placeholder=""
+          type="text"
+        />
+      </ng-container>
+    </app-labeled-input>
+
+    <app-labeled-input>
+      <ng-container slot="label">
+        <p>Birthday</p>
+      </ng-container>
+
+      <ng-container slot="control">
+        <app-date-picker
+          appInputValidation
+          [inputLabel]="'Birthday'"
+          [disabled]="disabled"
+          [inputControl]="formGroup.get('birthday') | getControl"
+          [dateControl]="formGroup.get('birthday') | getControl"
+        ></app-date-picker>
+      </ng-container>
+    </app-labeled-input>
+
+    <button
+      [disabled]="disableRemove"
+      (click)="removeItem.emit()"
+      class="button-remove"
+      mat-button
+    >
+      Remove item
+    </button>
+  </mat-card-content>
+</mat-card>

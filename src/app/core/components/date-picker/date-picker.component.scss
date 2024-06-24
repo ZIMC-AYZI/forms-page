@@ -1,0 +1,42 @@
+@import "../../../../assets/styles/vars";
+
+
+mat-form-field {
+  width: 100%;
+  cursor: pointer;
+
+  &.disabled {
+    cursor: initial;
+
+    .mat-datepicker-input {
+      cursor: initial;
+    }
+
+    & .mat-mdc-text-field-wrapper {
+      background-color: $input-not-editable-color !important;
+    }
+  }
+
+  .mat-mdc-form-field-flex {
+    height: 42px;
+
+    & .mat-mdc-form-field-infix {
+      padding: 11px;
+    }
+  }
+
+  & .mat-mdc-text-field-wrapper {
+    padding-left: initial;
+    border: 1px solid $fields-stroke-color;
+    background-color: $white-color !important;
+    border-radius: 5px;
+
+    & .mdc-line-ripple {
+      display: none;
+    }
+  }
+
+  .mat-datepicker-input {
+    cursor: pointer;
+  }
+}

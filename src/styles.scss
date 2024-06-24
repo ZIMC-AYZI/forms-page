@@ -1,0 +1,68 @@
+@import "assets/styles/vars";
+
+/* You can add global styles to this file, and also import other style files */
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  //border: 1px solid red;
+}
+
+.container {
+  padding: 10px;
+}
+
+
+
+
+.app-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid $fields-stroke-color;
+  border-radius: 5px;
+  color: $color-grey;
+  background: $white-color;
+  outline: none;
+
+  &:read-only {
+    background: $input-not-editable-color !important;
+    pointer-events: none;
+    cursor: initial;
+  }
+
+  &::placeholder {
+    color: $fields-stroke-color;
+  }
+
+  &:focus {
+    border: 1px solid $primary-dark-color !important;
+    outline: none;
+    color: $primary-dark-color;
+
+    &::placeholder {
+      color: $white-color;
+    }
+  }
+
+  &.ng-touched.ng-invalid {
+    border-color: $soft-red;
+    color: $soft-red;
+    background: rgba(222, 74, 94, 0.1);
+
+    &::placeholder {
+      color: $soft-red;
+    }
+  }
+}
+
+.input-error {
+  &__message {
+    font-size: 13px;
+    color: $soft-red;
+  }
+}
