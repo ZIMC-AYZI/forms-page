@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "docs/",
+            "outputPath": "dist/forms-page",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -126,6 +126,13 @@
               "src/**/*.ts",
               "src/**/*.html"
             ]
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/forms-page/",
+            "repo": "git@github.com:ZIMC-AYZI/forms-page.git"
           }
         }
       }
